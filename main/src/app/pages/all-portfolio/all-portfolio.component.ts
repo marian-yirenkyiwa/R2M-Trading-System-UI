@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./all-portfolio.component.scss']
 })
 export class AllPortfolioComponent {
+  displayedColumns: string[] = ['portfolio', 'portfolioworth', 'symbol'];
 
 }
