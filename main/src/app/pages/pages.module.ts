@@ -11,7 +11,7 @@ import * as TablerIcons from 'angular-tabler-icons/icons';
 import { AppDashboardComponent } from './dashboard/dashboard.component';
 import { CreateOrderComponent } from './create-order/create-order.component';
 
-import { UicomponentsModule } from './ui-components/ui-components.module';
+// import { UicomponentsModule } from './ui-components/ui-components.module';
 import {PortfolioComponent} from "./portfolio/portfolio.component";
 import { OrderHistoryComponent } from "./order-history/order-history.component";
 import { AllPortfolioComponent } from "./all-portfolio/all-portfolio.component";

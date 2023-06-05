@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, Validators, FormGroup, FormControl} from "@angular/forms";
 import { of } from 'rxjs';
 import { OrderService } from 'src/app/services/order.service';
-import { OrderModel } from './order.model';
+import { OrderModel } from '../../models/order.model';
 
 @Component({
   selector: 'create-order',
@@ -11,8 +11,7 @@ import { OrderModel } from './order.model';
 })
 export class CreateOrderComponent implements OnInit{
 
-
-  orderForm = new FormGroup({
+  orderForm: FormGroup = new FormGroup({
     product: new FormControl(['', [Validators.minLength, Validators.required]]),
     quantity: new FormControl(['', [Validators.min(1),Validators.required]]),
     orderside: new FormControl(['', [Validators.required]]),
@@ -20,17 +19,25 @@ export class CreateOrderComponent implements OnInit{
     price: new FormControl(['', [Validators.min(1),Validators.required]])
   })
 
-  constructor(private formBuilder: FormBuilder, private orderService: OrderService){}
-  ngOnInit(): void {
-    //throw new Error('Method not implemented.');
-  }
+  // order: OrderModel = {product: "", quantity: 0, orderside: "", ordertype: "", price: 0}
 
-payload: OrderModel;
-  onSubmit(payload: OrderModel ) {
-    console.log(payload)
-    this.orderService.getNewOrder(payload)
+
+  constructor(private orderService: OrderService){}
+  ngOnInit(): void {}
+
+// payload: OrderModel;
+
+  onSubmit(orderDetails: { product: string; quantity: string; orderside: string; ordertype: string; price: string; }) {
+    const product = orderDetails.product.trim();
+    const quantity = parseInt(orderDetails.quantity);
+    const orderside = orderDetails.orderside.trim();
+    const ordertype = orderDetails.ordertype.trim();
+    const price = parseInt(orderDetails.price);
+
+    console.log(this.orderForm.value)
+    this.orderService.getNewOrder({product, quantity, orderside, ordertype, price})
     .subscribe(
-      data=> console.log("Success!", data),
+      data=> console.log("Success!", data)
       // error => console.error("!Error", error)
     )
 

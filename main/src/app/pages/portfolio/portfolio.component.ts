@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Portfolio} from "./portfolio.model";
+import {Portfolio} from "../../models/portfolio.model";
 
 @Component({
   selector: 'portfolio',
