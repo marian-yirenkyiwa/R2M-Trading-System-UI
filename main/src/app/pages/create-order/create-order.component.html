@@ -1,0 +1,151 @@
+<div class="blank-layout-container justify-content-center align-items-center">
+    <div
+      class="position-relative row w-100 h-100 bg-gredient justify-content-center"
+    >
+      <div class="col-lg-6 d-flex align-items-center">
+        <mat-card class="cardWithShadow boxed-auth">
+          <mat-card-content class="p-32">
+
+            <div class="m-t-15">
+              <h2 class="text-center ">Create New Order</h2>
+            </div>
+
+            <form #form="ngForm" [formGroup]="orderForm" (submit)="onSubmit(form.value)" class="form m-t-30">
+              <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+                >Product</mat-label
+              >
+              <mat-form-field class="form-group" appearance="outline" class="w-100" color="primary">
+                <input name= "product" matInput type="text" formControlName="product" minlength="3" ngModel/>
+              </mat-form-field>
+
+              <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+                >Quantity</mat-label
+              >
+              <mat-form-field class="form-group" appearance="outline" class="w-100" color="primary">
+                <input name = "quantity" matInput type="number" formControlName="quantity" ngModel/>
+              </mat-form-field>
+
+
+              <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Order Side</mat-label>
+              <mat-form-field class="form-group" appearance="outline" class="w-100">
+                <mat-label>Select order side</mat-label>
+                <mat-select formControlName="orderside" name="orderside" appearance="outline" color="primary" ngModel>
+                <mat-option
+                *ngFor="let orderside of ordersides" [value]="orderside.value">
+                {{orderside.viewValue}}
+                </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+
+              <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Order Type</mat-label>
+              <mat-form-field class="form-group" appearance="outline" class="w-100">
+                <mat-label>Select order type</mat-label>
+                <mat-select formControlName="ordertype" name="ordertype" appearance="outline" color="primary" ngModel>
+                <mat-option
+                *ngFor="let ordertype of ordertypes" [value]="ordertype.value">
+                {{ordertype.viewValue}}
+                </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <!-- PRICE -->
+              <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+                >Price</mat-label
+              >
+              <mat-form-field class="form-group" appearance="outline" class="w-100" color="primary">
+                <input name="price" matInput type="number" step="any" formControlName="price" ngModel/>
+                <span matTextPrefix>$&nbsp;</span>
+              </mat-form-field>
+
+              <a [routerLink]="['create-order']" mat-flat-button color="primary" class="w-100">
+                Submit
+              </a>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <!-- [routerLink]="['create-order']" -->
+
+
+
+
+
+
+<!--
+<form #form="ngForm" [formGroup]="orderForm" (ngSubmit)="onSubmit()" class="form">
+  <div class="card mt-3 cardWithShadow boxed-auth round">
+    <h2 class="pl-32 pb-16">Create New Order</h2>
+    <div class="card-body p-32">
+
+        <div class="form-group round ">
+            <label for="product">Product</label>
+            <input id="product" type="text" formControlName="product" class="form-control round" minlength="4"
+                [ngClass]="{ 'is-invalid': form.submitted && controls.product.invalid }">
+
+            <div *ngIf="form.submitted && controls.product.invalid" class="text-danger">
+            <small *ngIf="controls.product.errors?.required">Product name is required.</small>
+            <small *ngIf="controls.product.errors?.product">Product is invalid.</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input id="quantity" type="number" formControlName="quantity" class="form-control"
+                [ngClass]="{ 'is-invalid': form.submitted && controls.quantity.invalid }">
+
+            <div *ngIf="form.submitted && controls.quantity.invalid" class="text-danger">
+            <small *ngIf="controls.quantity.errors?.required">Quantity is required.</small>
+            <small *ngIf="controls.quantity.errors?.quantity">Quantity is invalid.</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="orderside">Order Side</label>
+
+            <select class="form-select" aria-label="order side" formControlName="orderside"
+                [ngClass]="{ 'is-invalid': form.submitted && controls.orderside.invalid }">
+                <option></option>
+                <option value="BUY">BUY</option>
+                <option value="SELL">SELL</option>
+            </select>
+
+            <div *ngIf="form.submitted && controls.orderside.invalid" class="text-danger">
+            <small *ngIf="controls.orderside.errors?.required">Order side is required.</small>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="ordertype">Order Type</label>
+
+            <select class="form-select" aria-label="order type" formControlName="ordertype"
+                [ngClass]="{ 'is-invalid': form.submitted && controls.ordertype.invalid }">
+                <option value="MARKET">MARKET</option>
+                <option value="LIMIT">LIMIT</option>
+            </select>
+
+            <div *ngIf="form.submitted && controls.ordertype.invalid" class="text-danger">
+            <small *ngIf="controls.ordertype.errors?.required">Order type is required.</small>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input id="price" type="number" step="any" formControlName="price" class="form-control"
+                [ngClass]="{ 'is-invalid': form.submitted && controls.price.invalid }">
+            <div *ngIf="form.submitted && controls.price.invalid" class="text-danger">
+            <small *ngIf="controls.price.errors?.required">Price is required.</small>
+            </div>
+
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-success">submit</button>
+      </div>
+    </div>
+  </div>
+</form> -->
