@@ -1,4 +1,11 @@
 export interface Portfolio {
   portfolioName: string;
-  portfolioWorth: number;
+}
+
+export interface PortfolioResponse{
+    portfolioId: number;
+    portfolioName: string;
+    dateCreated: Date;
+    portfolioWorth:number;
+    clientId: number;
 }

@@ -38,8 +38,9 @@ export class AppSideRegisterComponent {
     // console.log(this.signupForm.value);
     this.authService.clientSignup({firstname, lastname, email, password})
     .subscribe(
-      data=> console.log("Success!", data)
+     {next: (data) => this.router.navigateByUrl("authentication/login"),
+      error:(err)=> console.log(err)}
     )
-    // this.router.navigate(['/authentication/login']);
+    
   }
 }

@@ -15,6 +15,7 @@
 
             <div *ngIf="form.submitted && controls.email.invalid" class="text-danger">
               <small *ngIf="controls.email.errors?.required" color="warn">Email is required.</small>
+              <small *ngIf="controls.email.errors?.email">Email is invalid.</small>
             </div>
             <mat-form-field appearance="outline" class="w-100" color="primary">
               <input matInput  name="email" type="email" formControlName="email" ngModel required/>
@@ -25,6 +26,7 @@
 
               <div *ngIf="form.submitted && controls.email.invalid" class="text-danger">
                 <small *ngIf="controls.email.errors?.required" color="warn">Password is required.</small>
+                <small *ngIf="controls.email.errors?.email">Email is invalid.</small>
               </div>
             <mat-form-field appearance="outline" class="w-100" color="primary">
               <input matInput name="password" type="password" formControlName="password" ngModel required/>
@@ -40,6 +42,7 @@
             <a  mat-flat-button color="primary" class="w-100">
               <button mat-flat-button color="primary" type="submit">Submit</button>
             </a>
+
             <!-- input -->
           </form>
           <span class="d-block f-w-500 text-center m-t-24"

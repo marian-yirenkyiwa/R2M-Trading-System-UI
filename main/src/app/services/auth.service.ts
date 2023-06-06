@@ -1,30 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { LoginAuth } from '../models/auth.model';
+import { LoginAuth, LoginResponse, SignUpResponse } from '../models/auth.model';
 import { SignUpAuth } from '../models/auth.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,) { }
 
   // payload: LoginAuth = {email: 'marian@gmail.com', password: '123'};
 
   // payload: LoginAuth 
   clientLogin(payload: LoginAuth){
-    // const url = '';
-    // this.http.post(url, payload);
-    // console.log(this.payload)
-    // console.log(payload)
-    return of(payload)
+    const url = 'http://localhost:8081/api/auth/authenticate'
+    // var existToken = window.localStorage.getItem("auth");
+    return this.http.post<LoginResponse>(url, payload)
   }
 
-  clientSignup(payload: SignUpAuth){
-    // console.log(payload);
-    return of(payload);
+
+  clientSignup(payload: SignUpAuth): Observable<SignUpResponse>{
+    const url = 'http://localhost:8081/api/auth/register';
+    return this.http.post<SignUpResponse>(url, payload)
   }
 
 }

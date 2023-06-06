@@ -7,7 +7,7 @@ import { Portfolio } from 'src/app/models/portfolio.model';
   styleUrls: ['./all-portfolio.component.scss']
 })
 export class AllPortfolioComponent {
-  displayedColumns: string[] = ['portfolioname', 'portfolioworth', 'symbol'];
+  displayedColumns: string[] = ['portfolioId', 'portfolioName', 'dateCreated', 'portfolioWorth', 'clientId'];
   color="cadetblue"
 
 }

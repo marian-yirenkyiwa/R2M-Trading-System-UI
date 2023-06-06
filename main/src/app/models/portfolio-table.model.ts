@@ -1,6 +1,7 @@
 export interface PortfolioTable {
-    portfolioname: string;
-    portfolioworth: number;
-    weight: number;
-    symbol: string;
+    portfolioId: number;
+    portfolioName: string;
+    dateCreated: Date;
+    portfolioWorth:number;
+    clientId: number;
 }
