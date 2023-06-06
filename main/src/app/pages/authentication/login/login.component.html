@@ -7,10 +7,10 @@
         <mat-card-content class="p-32">
 
           <div class="m-t-30">
-            <h2 class = "text-center text-sky-900">Login</h2>
+            <h2 class = "text-center">Login</h2>
           </div>
 
-          <form #form="ngForm" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)" class="m-t-30">
+          <form #form="ngForm" [formGroup]="loginForm" (ngSubmit)="onSubmit(form.value)" class="m-t-30">
             <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Email</mat-label>
 
             <div *ngIf="form.submitted && controls.email.invalid" class="text-danger">

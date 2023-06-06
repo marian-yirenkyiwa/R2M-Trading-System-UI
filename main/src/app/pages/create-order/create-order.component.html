@@ -10,7 +10,7 @@
               <h2 class="text-center ">Create New Order</h2>
             </div>
 
-            <form #form="ngForm" [formGroup]="orderForm" (ngSubmit)="onSubmit(orderForm.value)" class="form m-t-30">
+            <form #form="ngForm" [formGroup]="orderForm" (ngSubmit)="onSubmit(form.value)" class="form m-t-30">
               <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
                 >Product</mat-label
               >

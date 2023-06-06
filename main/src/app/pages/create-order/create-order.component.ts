@@ -27,14 +27,14 @@ export class CreateOrderComponent implements OnInit{
 
 // payload: OrderModel;
 
-  onSubmit(orderDetails: { product: string; quantity: string; orderside: string; ordertype: string; price: string; }) {
+  onSubmit(orderDetails: OrderModel) {
     const product = orderDetails.product.trim();
-    const quantity = parseInt(orderDetails.quantity);
+    const quantity = Number(orderDetails.quantity);
     const orderside = orderDetails.orderside.trim();
     const ordertype = orderDetails.ordertype.trim();
-    const price = parseInt(orderDetails.price);
+    const price = Number(orderDetails.price);
 
-    console.log(this.orderForm.value)
+    // console.log(this.orderForm.value)
     this.orderService.getNewOrder({product, quantity, orderside, ordertype, price})
     .subscribe(
       data=> console.log("Success!", data)

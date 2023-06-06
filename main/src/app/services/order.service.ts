@@ -10,28 +10,27 @@ import { OrderResponse } from "../models/order.model";
 export class OrderService implements OnInit{
 
 
-  orders = [
-              {id: 1, product: "MICROSOFT", orderSide: "BUY", orderType: "MARKET"},
-              {id: 2, product: "GOOGLE", orderSide: "BUY", orderType: "MARKET"},
-              {id: 3, product: "NETFLIX", orderSide: "SELL", orderType: "LIMIT"}
-  ]
+  // orders = [
+  //             {id: 1, product: "MICROSOFT", orderSide: "BUY", orderType: "MARKET"},
+  //             {id: 2, product: "GOOGLE", orderSide: "BUY", orderType: "MARKET"},
+  //             {id: 3, product: "NETFLIX", orderSide: "SELL", orderType: "LIMIT"}
+  // ]
 
-  newOrder = 
-    { product: 'NFLX',
-      quantity: 12,
-      orderside: 'SELL',
-      ordertype: 'MARKET',
-      price: 5.00,
-    }
+  // newOrder = 
+  //   { product: 'NFLX',
+  //     quantity: 12,
+  //     orderside: 'SELL',
+  //     ordertype: 'MARKET',
+  //     price: 5.00,
+  //   }
   
 
   constructor(private http: HttpClient) { }
   
   getNewOrder(newOrder: OrderModel){
-    //  return console.log("success")
     const url = '';
     // return this.http.post<OrderResponse>(url, newOrder);
-    return of(this.newOrder);
+    return of(newOrder);
 
   }
 

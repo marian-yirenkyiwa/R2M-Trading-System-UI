@@ -10,27 +10,21 @@
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
       
-        <!-- Position Column -->
-        <!-- <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-        </ng-container> -->
-      
         <!-- Name Column -->
         <ng-container matColumnDef="portfolioname">
-          <th mat-header-cell *matHeaderCellDef> Portfolio Name </th>
+          <th mat-header-cell *matHeaderCellDef [style.background-color]="color" class="text-600"> Portfolio Name </th>
           <td mat-cell *matCellDef="let element"> {{element.portfolioname}} </td>
         </ng-container>
       
-        <!-- Weight Column -->
+        <!-- Worth Column -->
         <ng-container matColumnDef="portfolioworth">
-          <th mat-header-cell *matHeaderCellDef>  Portfolio Worth </th>
+          <th mat-header-cell *matHeaderCellDef [style.background-color]="color">  Portfolio Worth </th>
           <td mat-cell *matCellDef="let element"> {{element.portfolioworth}} </td>
         </ng-container>
       
         <!-- Symbol Column -->
         <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef> Symbol </th>
+          <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> Symbol </th>
           <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
         </ng-container>
       

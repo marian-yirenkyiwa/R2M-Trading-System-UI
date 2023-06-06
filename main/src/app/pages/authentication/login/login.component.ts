@@ -3,6 +3,7 @@ import {AbstractControl, FormBuilder, Validators, FormGroup, FormControl} from "
 import { of } from 'rxjs';
 import { LoginAuth } from 'src/app/models/auth.model';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,19 +20,17 @@ export class AppSideLoginComponent {
     return this.loginForm.controls;
   }
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit(loginDetails: LoginAuth){
-    console.log("Success!")
     const email = loginDetails.email.trim();
     const password = loginDetails.password.trim();
 
-    
-    console.log(this.loginForm.value)
     this.authService.clientLogin({email, password})
     .subscribe(
       data=> console.log("Success!", data)
     )
+    // this.router.navigate(['/dashboard']);
 
 
   }
