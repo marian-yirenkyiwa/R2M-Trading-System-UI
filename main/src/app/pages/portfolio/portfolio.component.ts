@@ -19,7 +19,7 @@ export class PortfolioComponent {
     selectedValue: string;
 
     portfolionames: any [] = [
-      {value: 'DEFAULT', viewValue: 'DEFAULT'},
+      // {value: 'DEFAULT', viewValue: 'DEFAULT'},
       {value: 'TECH', viewValue: 'TECH'},
       {value: 'AGRIC', viewValue: 'AGRIC'},
       {value: 'CRYPTO', viewValue: 'CRYPTO'}

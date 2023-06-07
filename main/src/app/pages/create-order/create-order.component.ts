@@ -35,11 +35,18 @@ export class CreateOrderComponent implements OnInit{
     const price = Number(orderDetails.price);
 
     // console.log(this.orderForm.value)
-    this.orderService.getNewOrder({product, quantity, orderside, ordertype, price})
-    .subscribe(
-      data=> console.log("Success!", data)
-      // error => console.error("!Error", error)
-    )
+     this.orderService.createOrder({product, quantity, orderside, ordertype, price})
+    //   .subscribe(
+    //   data=> console.log("Success!", data)
+    //   error => console.error("!Error", error)
+    // )
+   
+   
+   
+     // console.log(order);
+
+
+    
 
   }
 
