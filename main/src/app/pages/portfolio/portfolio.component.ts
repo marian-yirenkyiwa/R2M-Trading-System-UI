@@ -29,11 +29,11 @@ export class PortfolioComponent {
 
   // payload: Portfolio;
   onSubmit(payload: Portfolio) {
-    const portfolioName = payload.portfolioName
+    const portfolioname = payload.portfolioname
     console.log("Success");
-    this.portfolioService.createNewPortfolio({portfolioName})
+    this.portfolioService.createNewPortfolio({portfolioname})
     .subscribe(
-      {next: (data) => console.log("Successful!"),
+      {next: (data) => {console.log("Successful!"), this.router.navigateByUrl("/dashboard")},
        error:(err)=> console.log(err)}
      )
 

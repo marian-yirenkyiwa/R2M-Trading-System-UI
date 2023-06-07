@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 import { LoginAuth } from 'src/app/models/auth.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
+// import { ToastrService } from 'ngx-toastr';
 import { Location } from '@angular/common';
 
 @Component({
@@ -14,8 +14,8 @@ import { Location } from '@angular/common';
 export class AppSideLoginComponent {
 
   loginForm: FormGroup = new FormGroup({
-    email: new FormControl(['', [Validators.required, Validators.email]]),
-    password: new FormControl(['', [Validators.required]])
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(8)])
   })
 
   get controls(): { [p: string]: AbstractControl } {

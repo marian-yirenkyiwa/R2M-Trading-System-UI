@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./order-history.component.scss']
 })
 export class OrderHistoryComponent {
-
+  displayedColumns: string[] = ['orderId', 'product', 'quantity', 'orderSide', 'orderType', 'price'];
+  color="cadetblue" 
 }

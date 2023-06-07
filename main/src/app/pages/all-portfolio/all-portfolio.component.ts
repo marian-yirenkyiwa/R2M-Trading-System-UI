@@ -8,6 +8,6 @@ import { Portfolio } from 'src/app/models/portfolio.model';
 })
 export class AllPortfolioComponent {
   displayedColumns: string[] = ['portfolioId', 'portfolioName', 'dateCreated', 'portfolioWorth', 'clientId'];
-  color="cadetblue"
+  color="cadetblue"                                                         
 
 }

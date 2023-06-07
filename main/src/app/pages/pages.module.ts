@@ -15,6 +15,8 @@ import { CreateOrderComponent } from './create-order/create-order.component';
 import {PortfolioComponent} from "./portfolio/portfolio.component";
 import { OrderHistoryComponent } from "./order-history/order-history.component";
 import { AllPortfolioComponent } from "./all-portfolio/all-portfolio.component";
+import { AllOrdersComponent } from './all-orders/all-orders.component';
+import { ClosePortfolioComponent } from './close-portfolio/close-portfolio.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { AllPortfolioComponent } from "./all-portfolio/all-portfolio.component";
     CreateOrderComponent,
     PortfolioComponent,
     OrderHistoryComponent,
-    AllPortfolioComponent
+    AllPortfolioComponent,
+    AllOrdersComponent,
+    ClosePortfolioComponent,
   ],
   imports: [
     CommonModule,
