@@ -15,22 +15,22 @@
 
             <mat-form-field class="form-group" appearance="outline" class="w-100">
               <mat-label>Select portfolio name</mat-label>
-              <mat-select formControlName="portfolioname" name="portfolioname" appearance="outline" color="primary" ngModel>
+              <mat-select formControlName="portfolioName" name="portfolioName" appearance="outline" color="primary" ngModel>
                 <mat-option
-                  *ngFor="let portfolioname of portfolionames" [value]="portfolioname.value">
-                  {{portfolioname.viewValue}}
+                  *ngFor="let portfolioName of portfolioNames" [value]="portfolioName.value">
+                  {{portfolioName.viewValue}}
                 </mat-option>
               </mat-select>
             </mat-form-field>
 
-            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Portfolio Worth</mat-label>
+            <!-- <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Portfolio Worth</mat-label>
             <mat-form-field class="form-group w-100" appearance="outline" color="primary">
-              <input name = "portfolioworth" matInput type="number" step="any" value="0.00" formControlName="portfolioworth" ngModel/>
+              <input name = "portfolioworth" matInput type="number" step="any" formControlName="portfolioworth" ngModel/>
               <span matTextPrefix>$</span>
-            </mat-form-field>
+            </mat-form-field> -->
 
             <a href="#" mat-flat-button color="primary" class="w-100">
-              Submit
+              <button mat-flat-button color="primary" type="submit">Submit</button>
             </a>
           </form>
         </mat-card-content>

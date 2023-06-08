@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Portfolio} from "./portfolio.model";
+import { Router } from '@angular/router';
+import { PortfolioService } from 'src/app/services/portfolio.service';
+import {Portfolio} from "../../models/portfolio.model";
 
 @Component({
   selector: 'portfolio',
@@ -10,21 +12,32 @@ import {Portfolio} from "./portfolio.model";
 export class PortfolioComponent {
 
   portfolioForm = new FormGroup({
-    portfolioname: new FormControl(['', [Validators.required]]),
-    portfolioworth: new FormControl(['', [Validators.min(0.00),Validators.required]])
+    portfolioName: new FormControl(['', [Validators.required]])
+    // portfolioworth: new FormControl(['', {value: '0.00', disabled: true}, [Validators.required]])
   })
 
     selectedValue: string;
 
-    portfolionames: any [] = [
-      {value: 'DEFAULT', viewValue: 'DEFAULT'},
+    portfolioNames: any [] = [
+      // {value: 'DEFAULT', viewValue: 'DEFAULT'},
       {value: 'TECH', viewValue: 'TECH'},
       {value: 'AGRIC', viewValue: 'AGRIC'},
       {value: 'CRYPTO', viewValue: 'CRYPTO'}
   ];
 
-  payload: Portfolio;
-  onSubmit(value: any) {
+  constructor(private portfolioService: PortfolioService, private router: Router){}
+
+  // payload: Portfolio;
+  onSubmit(payload: Portfolio) {
+    const portfolioName = payload.portfolioName
+    console.log("Success");
+    this.portfolioService.createNewPortfolio({portfolioName})
+    .subscribe(
+      {next: (data) => {console.log("Successful!"), this.router.navigateByUrl("/dashboard")},
+       error:(err)=> console.log(err)}
+     )
 
   }
 }
+
+// this.router.navigateByUrl("/dashboard")

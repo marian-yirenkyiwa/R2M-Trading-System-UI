@@ -7,6 +7,8 @@ import { HomepageComponent } from './landingpage/homepage/homepage.component';
 import {PortfolioComponent} from "./pages/portfolio/portfolio.component";
 import {OrderHistoryComponent} from "./pages/order-history/order-history.component";
 import {AllPortfolioComponent} from "./pages/all-portfolio/all-portfolio.component";
+import { AllOrdersComponent } from './pages/all-orders/all-orders.component';
+import { ClosePortfolioComponent } from './pages/close-portfolio/close-portfolio.component';
 
 const routes: Routes = [
   {
@@ -32,6 +34,10 @@ const routes: Routes = [
         component: CreateOrderComponent
       },
       {
+        path: 'orders',
+        component: AllOrdersComponent
+      },
+      {
         path: 'history',
         component: OrderHistoryComponent
       },
@@ -42,6 +48,10 @@ const routes: Routes = [
       {
         path: 'portfolios',
         component: AllPortfolioComponent
+      },
+      {
+        path: 'close',
+        component: ClosePortfolioComponent
       },
       {
         path: 'ui-components',

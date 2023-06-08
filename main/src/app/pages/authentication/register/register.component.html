@@ -10,39 +10,61 @@
             <h2 class="text-center text-sky-900">Sign Up</h2>
           </div>
 
-          <form class="m-t-30">
+          <form #form="ngForm" [formGroup]="signupForm" (ngSubmit)="onSubmit(form.value)" class="m-t-30">
             <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
               >First Name</mat-label
             >
+
+            <div *ngIf="form.submitted && controls.firstName.invalid" class="text-danger">
+              <small *ngIf="controls.firstName.errors?.required">First name is required.</small>
+              <small *ngIf="controls.firstName.errors?.firstname">First name is invalid.</small>
+            </div>
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput />
+              <input matInput name="firstName" type="text" formControlName="firstName" ngModel required/>
             </mat-form-field>
 
             <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
               >Last Name</mat-label
             >
+
+            <div *ngIf="form.submitted && controls.lastName.invalid" class="text-danger">
+              <small *ngIf="controls.lastName.errors?.required">Last name is required.</small>
+              <small *ngIf="controls.lastName.errors?.lastName">Last name is invalid.</small>
+            </div>
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput />
+              <input matInput name="lastName" type="text" formControlName="lastName" ngModel required/>
             </mat-form-field>
 
             <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
               >Email Adddress</mat-label
             >
+
+            <div *ngIf="form.submitted && controls.email.invalid" class="text-danger">
+              <small *ngIf="controls.email.errors?.required">Email is required.</small>
+              <small *ngIf="controls.email.errors?.email">Email is invalid.</small>
+            </div>
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput type="email" />
+              <input matInput type="email" name="email" formControlName="email" ngModel required/>
             </mat-form-field>
 
             <!-- password -->
             <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
               >Password</mat-label
             >
+
+            <div *ngIf="form.submitted && controls.password.invalid" class="text-danger">
+              <small *ngIf="controls.password.errors?.required">Password is required.</small>
+              <small *ngIf="controls.password.errors?.password">Password is invalid.</small>
+            </div>
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput type="password" />
+              <input matInput type="password" name="password" formControlName="password" ngModel required/>
             </mat-form-field>
 
-            <a [routerLink]="['/authentication/login']" mat-flat-button color="primary" class="w-100">
-              Create Account
+            <a mat-flat-button color="primary" class="w-100">
+              <button mat-flat-button color="primary">Create Account</button> 
             </a>
+
+            <!-- [routerLink]="['/authentication/login']" -->
             <!-- input -->
           </form>
           <span class="d-block f-w-500 text-center m-t-24"
