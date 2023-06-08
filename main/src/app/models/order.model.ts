@@ -8,12 +8,12 @@ export interface OrderModel {
 
 
 export interface OrderResponse {
-  orderid: number;
+  orderid: string;
   product: string;
   quantity: number;
   orderside: string;
   ordertype: string;
   price: number;
-  dateTimeCreated: Date;
+  dateTimeCreated: string;
 
 }

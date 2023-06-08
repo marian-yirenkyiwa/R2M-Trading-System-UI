@@ -26,7 +26,7 @@ import { HeaderComponent } from './layouts/full/header/header.component';
 import { BrandingComponent } from './layouts/full/sidebar/branding.component';
 import { AppNavItemComponent } from './layouts/full/sidebar/nav-item/nav-item.component';
 import { CommonModule } from '@angular/common';
-import { ToastrModule } from 'ngx-toastr';
+// import { ToastrModule } from 'ngx-toastr';
 
 //Landing Page
 import { HomepageComponent } from './landingpage/homepage/homepage.component';
@@ -58,7 +58,7 @@ import { AuthTokenInterceptorInterceptor } from './interceptors/auth-token-inter
     MaterialModule,
     TablerIconsModule.pick(TablerIcons),
     MatTableModule,
-    ToastrModule.forRoot(),
+    // ToastrModule.forRoot(),
 
     
   ],

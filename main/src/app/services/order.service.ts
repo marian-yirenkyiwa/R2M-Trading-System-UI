@@ -3,12 +3,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { OrderModel } from '../models/order.model';
 import { OrderResponse } from "../models/order.model";
+import { OrderMock } from '../mock_service/order_mock';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService implements OnInit{
 
+   orderMock = new OrderMock();
 
   // orders = [
   //             {id: 1, product: "MICROSOFT", orderSide: "BUY", orderType: "MARKET"},
@@ -26,14 +28,23 @@ export class OrderService implements OnInit{
   
 
   constructor(private http: HttpClient) { }
+
+
   
-  getNewOrder(newOrder: OrderModel){
-    const url = '';
+  createOrder(newOrder: OrderModel){
+    // const url = '';
     // return this.http.post<OrderResponse>(url, newOrder);
-    return of(newOrder);
+    return this.orderMock.addOrder(newOrder);
 
   }
 
+  getAllOrders(){
+    return this.orderMock.getOrders;
+  }
+
+  getOrderById(id: string){
+    this.orderMock.getOrderById(id)
+  }
 
   ngOnInit(): void {
 

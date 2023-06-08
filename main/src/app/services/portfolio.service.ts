@@ -17,13 +17,13 @@ export class PortfolioService {
 
   }
 
-  createNewPortfolio(payload: Portfolio){
+  createNewPortfolio(payload: Portfolio): Observable<PortfolioResponse>{
     const url = "http://localhost:8081/api/portfolio/create-portfolio";
-    return this.http.post(url, payload);
+    return this.http.post<PortfolioResponse>(url, payload);
   }
 
-  viewAllPortfolio(payload: PortfolioTable){
-    const url = "http://localhost:8081/api/portfolio//list-all-portfolio/{clientId}";
-    return this.http.get(url);
-  }
+  // viewAllPortfolio(payload: PortfolioTable){
+  //   const url = "http://localhost:8081/api/portfolio//list-all-portfolio/{clientId}";
+  //   return this.http.get(url);
+  // }
 }

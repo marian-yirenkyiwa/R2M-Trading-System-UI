@@ -1,5 +1,5 @@
 export interface Portfolio {
-  portfolioName: string;
+  portfolioname: string;
 }
 
 export interface PortfolioResponse{

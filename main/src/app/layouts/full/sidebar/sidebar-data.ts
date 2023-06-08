@@ -25,18 +25,8 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Cancel Order',
     iconName: 'coin-off',
-    route: '/history',
+    route: '/orders',
   },
-  // {
-  //   displayName: 'Menu',
-  //   iconName: 'layout-navbar-expand',
-  //   route: '/ui-components/menu',
-  // },
-  // {
-  //   displayName: 'Tooltips',
-  //   iconName: 'tooltip',
-  //   route: '/ui-components/tooltips',
-  // },
   {
     navCap: 'Portfolio',
   },
@@ -53,21 +43,8 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Close Portfolio',
     iconName: 'briefcase-off',
-    route: '/portfolios',
+    route: '/close',
   },
-  // {
-  //   navCap: 'Extra',
-  // },
-  // {
-  //   displayName: 'Icons',
-  //   iconName: 'mood-smile',
-  //   route: '/extra/icons',
-  // },
-  // {
-  //   displayName: 'Sample Page',
-  //   iconName: 'aperture',
-  //   route: '/extra/sample-page',
-  // },
   {
     navCap: 'Logout',
   },
