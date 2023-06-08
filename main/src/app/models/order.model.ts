@@ -1,18 +1,18 @@
 export interface OrderModel {
     product: string;
     quantity: number;
-    orderside: string;
-    ordertype: string;
+    side: string;
+    type: string;
     price: number;
 }
 
 
 export interface OrderResponse {
-  orderid: string;
+  orderId: string;
   product: string;
   quantity: number;
-  orderside: string;
-  ordertype: string;
+  side: string;
+  type: string;
   price: number;
   dateTimeCreated: string;
 

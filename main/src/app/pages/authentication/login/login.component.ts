@@ -36,6 +36,7 @@ export class AppSideLoginComponent {
         {
          
           window.localStorage.setItem("auth", data.token)
+          // this.authService.setToken(data.token)
           this.router.navigateByUrl("/dashboard")
         }
       },

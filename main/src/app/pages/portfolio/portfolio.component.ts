@@ -12,13 +12,13 @@ import {Portfolio} from "../../models/portfolio.model";
 export class PortfolioComponent {
 
   portfolioForm = new FormGroup({
-    portfolioname: new FormControl(['', [Validators.required]])
+    portfolioName: new FormControl(['', [Validators.required]])
     // portfolioworth: new FormControl(['', {value: '0.00', disabled: true}, [Validators.required]])
   })
 
     selectedValue: string;
 
-    portfolionames: any [] = [
+    portfolioNames: any [] = [
       // {value: 'DEFAULT', viewValue: 'DEFAULT'},
       {value: 'TECH', viewValue: 'TECH'},
       {value: 'AGRIC', viewValue: 'AGRIC'},
@@ -29,9 +29,9 @@ export class PortfolioComponent {
 
   // payload: Portfolio;
   onSubmit(payload: Portfolio) {
-    const portfolioname = payload.portfolioname
+    const portfolioName = payload.portfolioName
     console.log("Success");
-    this.portfolioService.createNewPortfolio({portfolioname})
+    this.portfolioService.createNewPortfolio({portfolioName})
     .subscribe(
       {next: (data) => {console.log("Successful!"), this.router.navigateByUrl("/dashboard")},
        error:(err)=> console.log(err)}

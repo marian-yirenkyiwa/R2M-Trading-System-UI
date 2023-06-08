@@ -11,8 +11,8 @@ import { AuthService } from 'src/app/services/auth.service';
 export class AppSideRegisterComponent {
 
   signupForm = new FormGroup({
-    firstname: new FormControl('', [Validators.required, Validators.minLength(4)]),
-    lastname: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    firstName: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    lastName: new FormControl('', [Validators.required, Validators.minLength(4)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(8)]),
   });
@@ -29,14 +29,14 @@ export class AppSideRegisterComponent {
 
 
   onSubmit(newAccountDetails: SignUpAuth) {
-    const firstname= newAccountDetails.firstname.trim();
-    const lastname = newAccountDetails.lastname.trim();
+    const firstName= newAccountDetails.firstName.trim();
+    const lastName = newAccountDetails.lastName.trim();
     const email = newAccountDetails.email.trim();
     const password = newAccountDetails.password.trim();
     
     
     // console.log(this.signupForm.value);
-    this.authService.clientSignup({firstname, lastname, email, password})
+    this.authService.clientSignup({firstName, lastName, email, password})
     .subscribe(
      {next: (data) => this.router.navigateByUrl("authentication/login"),
       error:(err)=> console.log(err)}

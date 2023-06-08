@@ -15,10 +15,10 @@
 
             <mat-form-field class="form-group" appearance="outline" class="w-100">
               <mat-label>Select portfolio name</mat-label>
-              <mat-select formControlName="portfolioname" name="portfolioname" appearance="outline" color="primary" ngModel>
+              <mat-select formControlName="portfolioName" name="portfolioName" appearance="outline" color="primary" ngModel>
                 <mat-option
-                  *ngFor="let portfolioname of portfolionames" [value]="portfolioname.value">
-                  {{portfolioname.viewValue}}
+                  *ngFor="let portfolioName of portfolioNames" [value]="portfolioName.value">
+                  {{portfolioName.viewValue}}
                 </mat-option>
               </mat-select>
             </mat-form-field>

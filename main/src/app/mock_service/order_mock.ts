@@ -5,11 +5,11 @@ export class OrderMock{
 
     addOrder(orderModel: OrderModel): OrderResponse {
         let orderResponse: OrderResponse = {
-            orderid: (this.order.length + 1).toString(),
+            orderId: (this.order.length + 1).toString(),
             product: orderModel.product,
             quantity: orderModel.quantity,
-            orderside: orderModel.orderside,
-            ordertype: orderModel.ordertype,
+            side: orderModel.side,
+            type: orderModel.type,
             price: orderModel.price,
             dateTimeCreated: Date.now().toString()
         };
@@ -24,6 +24,6 @@ export class OrderMock{
     }
 
     getOrderById(id: string): OrderResponse{
-       return this.order.filter(value => value.orderid === id)[0]
+       return this.order.filter(value => value.orderId === id)[0]
     }
 }

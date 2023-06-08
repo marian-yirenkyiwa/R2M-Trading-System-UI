@@ -27,4 +27,12 @@ export class AuthService {
     return this.http.post<SignUpResponse>(url, payload)
   }
 
+  setToken(tokenvalue: LoginResponse){
+    return window.localStorage.setItem("auth", tokenvalue.token)
+  }
+
+  getToken(){
+    return window.localStorage.getItem("auth")
+  }
+
 }

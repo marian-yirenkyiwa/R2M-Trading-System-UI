@@ -28,6 +28,17 @@ export class AuthTokenInterceptorInterceptor implements HttpInterceptor {
     }
    
     return next.handle(request);
+
+    // const authToken = this.authService.getToken();
+    //     request = request.clone(
+    //         {
+    //             setHeaders: {
+    //                 Authorization: "Bearer " + authToken
+    //             }
+    //         }
+    //     );
+    //     return next.handle(request);
+    // }
   }
     
     // const jwt = this.authService.getToken()

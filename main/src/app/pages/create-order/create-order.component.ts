@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, Validators, FormGroup, FormControl} from "@angular/forms";
+import { Router } from '@angular/router';
 import { of } from 'rxjs';
 import { OrderService } from 'src/app/services/order.service';
 import { OrderModel } from '../../models/order.model';
@@ -14,38 +15,35 @@ export class CreateOrderComponent implements OnInit{
   orderForm: FormGroup = new FormGroup({
     product: new FormControl(['', [Validators.minLength, Validators.required]]),
     quantity: new FormControl(['', [Validators.min(1),Validators.required]]),
-    orderside: new FormControl(['', [Validators.required]]),
-    ordertype: new FormControl(['', [Validators.required]]),
+    side: new FormControl(['', [Validators.required]]),
+    type: new FormControl(['', [Validators.required]]),
     price: new FormControl(['', [Validators.min(1),Validators.required]])
   })
 
-  // order: OrderModel = {product: "", quantity: 0, orderside: "", ordertype: "", price: 0}
 
-
-  constructor(private orderService: OrderService){}
+  constructor(private orderService: OrderService, private router: Router){}
   ngOnInit(): void {}
 
-// payload: OrderModel;
 
   onSubmit(orderDetails: OrderModel) {
     const product = orderDetails.product.trim();
     const quantity = Number(orderDetails.quantity);
-    const orderside = orderDetails.orderside.trim();
-    const ordertype = orderDetails.ordertype.trim();
+    const side = orderDetails.side.trim();
+    const type = orderDetails.type.trim();
     const price = Number(orderDetails.price);
 
     // console.log(this.orderForm.value)
-     this.orderService.createOrder({product, quantity, orderside, ordertype, price})
+     this.orderService.createOrder({product, quantity, side, type, price})
     //   .subscribe(
     //   data=> console.log("Success!", data)
     //   error => console.error("!Error", error)
     // )
-   
-   
-   
-     // console.log(order);
-
-
+    .subscribe(
+      {next: (data) => {
+        console.log("Success!", data), this.router.navigateByUrl("/history")
+      },
+       error:(err)=> console.log(err)}
+     )
     
 
   }
@@ -64,6 +62,19 @@ export class CreateOrderComponent implements OnInit{
   ordersides: any [] = [
     {value: 'SELL', viewValue: 'SELL'},
     {value: 'BUY', viewValue: 'BUY'}
+  ];
+
+  products: any [] = [
+    {value: 'AMZN', viewValue: 'AMZN'},
+    {value: 'GOOGL', viewValue: 'GOOGL'},
+    {value: 'AAPL', viewValue: 'AAPL'},
+    {value: 'MSFT', viewValue: 'MSFT'},
+    {value: 'IBM', viewValue: 'IBM'},
+    {value: 'NFLX', viewValue: 'NFLX'},
+    {value: 'TSLA', viewValue: 'TSLA'},
+    {value: 'TSLA', viewValue: 'TSLA'},
+    {value: 'ORCL', viewValue: 'ORCL'}
+   
   ];
 
 }

@@ -20,8 +20,14 @@
                 <small *ngIf="controls.product.errors?.product">Product is invalid.</small>
               </div>
 
-              <mat-form-field class="form-group" appearance="outline" class="w-100" color="primary">
-                <input name= "product" matInput type="text" formControlName="product" minlength="3" ngModel required/>
+              <mat-form-field class="form-group" appearance="outline" class="w-100">
+                <mat-label>Select product ticker</mat-label>
+                <mat-select formControlName="product" name="product" appearance="outline" color="primary" ngModel required>
+                <mat-option
+                *ngFor="let product of products" [value]="product.value">
+                {{product.viewValue}}
+                </mat-option>
+                </mat-select>
               </mat-form-field>
 
 
@@ -39,32 +45,32 @@
 
 
               <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Order Side</mat-label>
-              <div *ngIf="form.submitted && controls.orderside.invalid" class="text-danger">
-                <small *ngIf="controls.orderside.errors?.required">Order side is required.</small>
+              <div *ngIf="form.submitted && controls.side.invalid" class="text-danger">
+                <small *ngIf="controls.side.errors?.required">Order side is required.</small>
               </div>
 
               <mat-form-field class="form-group" appearance="outline" class="w-100">
                 <mat-label>Select order side</mat-label>
-                <mat-select formControlName="orderside" name="orderside" appearance="outline" color="primary" ngModel required>
+                <mat-select formControlName="side" name="side" appearance="outline" color="primary" ngModel required>
                 <mat-option
-                *ngFor="let orderside of ordersides" [value]="orderside.value">
-                {{orderside.viewValue}}
+                *ngFor="let side of ordersides" [value]="side.value">
+                {{side.viewValue}}
                 </mat-option>
                 </mat-select>
               </mat-form-field>
 
 
               <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Order Type</mat-label>
-              <div *ngIf="form.submitted && controls.ordertype.invalid" class="text-danger">
-                <small *ngIf="controls.ordertype.errors?.required">Order type is required.</small>
+              <div *ngIf="form.submitted && controls.type.invalid" class="text-danger">
+                <small *ngIf="controls.type.errors?.required">Order type is required.</small>
               </div>
 
               <mat-form-field class="form-group" appearance="outline" class="w-100">
                 <mat-label>Select order type</mat-label>
-                <mat-select formControlName="ordertype" name="ordertype" appearance="outline" color="primary" ngModel required>
+                <mat-select formControlName="type" name="type" appearance="outline" color="primary" ngModel required>
                 <mat-option
-                *ngFor="let ordertype of ordertypes" [value]="ordertype.value">
-                {{ordertype.viewValue}}
+                *ngFor="let type of ordertypes" [value]="type.value">
+                {{type.viewValue}}
                 </mat-option>
                 </mat-select>
 

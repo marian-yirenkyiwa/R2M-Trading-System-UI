@@ -10,7 +10,7 @@ import { OrderMock } from '../mock_service/order_mock';
 })
 export class OrderService implements OnInit{
 
-   orderMock = new OrderMock();
+  //  orderMock = new OrderMock();
 
   // orders = [
   //             {id: 1, product: "MICROSOFT", orderSide: "BUY", orderType: "MARKET"},
@@ -31,19 +31,19 @@ export class OrderService implements OnInit{
 
 
   
-  createOrder(newOrder: OrderModel){
-    // const url = '';
-    // return this.http.post<OrderResponse>(url, newOrder);
-    return this.orderMock.addOrder(newOrder);
-
+  createOrder(payload: OrderModel):Observable<OrderResponse>{
+    const url = 'http://localhost:9090/api/v1/orders/order';
+    return this.http.post<OrderResponse>(url, payload)   
   }
 
   getAllOrders(){
-    return this.orderMock.getOrders;
+    const url = 'http://localhost:9090/api/v1/orders/all';
+    console.log(this.http.get<OrderResponse[]>(url));
+    return this.http.get<OrderResponse[]>(url);
   }
 
   getOrderById(id: string){
-    this.orderMock.getOrderById(id)
+    // this.orderMock.getOrderById(id)
   }
 
   ngOnInit(): void {

@@ -11,19 +11,15 @@ export class PortfolioService {
 
   constructor(private http: HttpClient) { }
 
-  getAllClientPortfolio(){
-    const url = "http://localhost:8081/api/portfolio/list-all-portfolio/{clientId}";
-    return this.http.get(url);
-
-  }
-
   createNewPortfolio(payload: Portfolio): Observable<PortfolioResponse>{
     const url = "http://localhost:8081/api/portfolio/create-portfolio";
     return this.http.post<PortfolioResponse>(url, payload);
   }
 
-  // viewAllPortfolio(payload: PortfolioTable){
-  //   const url = "http://localhost:8081/api/portfolio//list-all-portfolio/{clientId}";
-  //   return this.http.get(url);
-  // }
+  getClientPortfolio(): Observable<PortfolioResponse[]>{
+    const url = "http://localhost:8081/api/portfolio/list-all-portfolio/{clientId}";
+    console.log(this.http.get<PortfolioResponse>(url));
+    return this.http.get<PortfolioResponse[]>(url);
+  }
+
 }

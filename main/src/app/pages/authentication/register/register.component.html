@@ -15,24 +15,24 @@
               >First Name</mat-label
             >
 
-            <div *ngIf="form.submitted && controls.firstname.invalid" class="text-danger">
-              <small *ngIf="controls.firstname.errors?.required">First name is required.</small>
-              <small *ngIf="controls.firstname.errors?.firstname">First name is invalid.</small>
+            <div *ngIf="form.submitted && controls.firstName.invalid" class="text-danger">
+              <small *ngIf="controls.firstName.errors?.required">First name is required.</small>
+              <small *ngIf="controls.firstName.errors?.firstname">First name is invalid.</small>
             </div>
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput name="firstname" type="text" formControlName="firstname" ngModel required/>
+              <input matInput name="firstName" type="text" formControlName="firstName" ngModel required/>
             </mat-form-field>
 
             <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
               >Last Name</mat-label
             >
 
-            <div *ngIf="form.submitted && controls.lastname.invalid" class="text-danger">
-              <small *ngIf="controls.lastname.errors?.required">Last name is required.</small>
-              <small *ngIf="controls.lastname.errors?.lastname">Last name is invalid.</small>
+            <div *ngIf="form.submitted && controls.lastName.invalid" class="text-danger">
+              <small *ngIf="controls.lastName.errors?.required">Last name is required.</small>
+              <small *ngIf="controls.lastName.errors?.lastName">Last name is invalid.</small>
             </div>
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput name="lastname" type="text" formControlName="lastname" ngModel required/>
+              <input matInput name="lastName" type="text" formControlName="lastName" ngModel required/>
             </mat-form-field>
 
             <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
